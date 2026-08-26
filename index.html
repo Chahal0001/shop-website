@@ -665,6 +665,118 @@
     display:none;
   }
 }
+  /* ---------- TYRE BRANDS ---------- */
+.tyre-brands{
+  padding:clamp(4.5rem,9vw,8rem) 0;
+  border-top:1px solid var(--line-soft);
+}
+
+.tyre-brands-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1.5rem;
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+
+.tyre-brands-head h2{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(2rem,4vw,3.2rem);
+  letter-spacing:-.01em;
+  margin-top:1rem;
+}
+
+.tyre-brands-head .tag-line{
+  color:var(--text-muted);
+  max-width:36ch;
+  line-height:1.6;
+  font-size:.98rem;
+}
+
+.tyre-brand-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line-soft);
+  border:1px solid var(--line-soft);
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.tyre-brand-card{
+  background:var(--surface);
+  min-height:300px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+  transition:background .4s var(--ease);
+}
+
+.tyre-brand-card:hover{
+  background:var(--surface-2);
+}
+
+.tyre-brand-image{
+  height:210px;
+  padding:1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f5f5f3;
+  overflow:hidden;
+}
+
+.tyre-brand-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform .5s var(--ease);
+}
+
+.tyre-brand-card:hover .tyre-brand-image img{
+  transform:scale(1.07);
+}
+
+.tyre-brand-info{
+  padding:1.2rem 1.4rem 1.4rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.tyre-brand-number{
+  font-family:var(--mono);
+  font-size:.68rem;
+  color:var(--text-dim);
+}
+
+.tyre-brand-name{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:1.05rem;
+  color:var(--text);
+  text-align:right;
+}
+
+@media (max-width:980px){
+  .tyre-brand-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:640px){
+  .tyre-brand-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tyre-brand-image{
+    height:240px;
+  }
+}
 </style>
 </head>
 <body>
@@ -799,7 +911,192 @@
       </div>
     </div>
   </section>
+<!-- TYRE BRANDS & PRODUCTS -->
+<section class="tyre-brands" id="tyre-brands">
+  <div class="wrap">
 
+    <div class="tyre-brands-head reveal">
+      <div>
+        <p class="eyebrow tyre">Our Brands</p>
+        <h2>Tyre Brands &amp; Products</h2>
+      </div>
+
+      <p class="tag-line">
+        A selection of premium tyre brands for cars, SUVs,
+        commercial vehicles, motorcycles and specialist applications.
+      </p>
+    </div>
+
+    <div class="tyre-brand-grid reveal-stagger reveal">
+
+      <!-- 01 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/bridgestone.jpg"
+            alt="Bridgestone tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">01</span>
+          <span class="tyre-brand-name">Bridgestone</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/michelin.jpg"
+            alt="Michelin tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">02</span>
+          <span class="tyre-brand-name">Michelin</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/goodyear.jpg"
+            alt="Goodyear tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">03</span>
+          <span class="tyre-brand-name">Goodyear</span>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/uniroyal.jpg"
+            alt="Uniroyal tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">04</span>
+          <span class="tyre-brand-name">Uniroyal</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/bfgoodrich.jpg"
+            alt="BFGoodrich tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">05</span>
+          <span class="tyre-brand-name">BFGoodrich</span>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/yokohama.jpg"
+            alt="Yokohama tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">06</span>
+          <span class="tyre-brand-name">Yokohama</span>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/mickey-thompson.jpg"
+            alt="Mickey Thompson tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">07</span>
+          <span class="tyre-brand-name">Mickey Thompson</span>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/mitas.jpg"
+            alt="MITAS tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">08</span>
+          <span class="tyre-brand-name">MITAS</span>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/pirelli.jpg"
+            alt="Pirelli tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">09</span>
+          <span class="tyre-brand-name">Pirelli</span>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/metzeler.jpg"
+            alt="Metzeler tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">10</span>
+          <span class="tyre-brand-name">Metzeler</span>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="tyre-brand-card">
+        <div class="tyre-brand-image">
+          <img
+            src="images/tyres/dunlop.jpg"
+            alt="Dunlop tyre"
+            loading="lazy"
+          >
+        </div>
+        <div class="tyre-brand-info">
+          <span class="tyre-brand-number">11</span>
+          <span class="tyre-brand-name">Dunlop</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   <!-- ENGINEERING & CONSTRUCTION -->
   <section class="services alt" id="engineering" data-accent="eng">
     <div class="wrap">
