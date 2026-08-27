@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  ```html
+<!-- FLOATING EMBLEM VIDEO -->
+<div class="emblem-video-wrap" id="emblemVideo">
+  <video
+    class="emblem-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source src="videos/emblem.mp4" type="video/mp4">
+  </video>
+</div>
+```
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chahal Engineers & Co. — Tyres &amp; Auto Care · Engineering &amp; Construction, Jammu</title>
@@ -777,6 +793,75 @@
     height:240px;
   }
 }
+  ```css
+/* ---------- FLOATING EMBLEM VIDEO ---------- */
+
+.emblem-video-wrap{
+  position:fixed;
+  right:clamp(1.5rem,5vw,4rem);
+  top:50%;
+  width:clamp(130px,16vw,220px);
+  aspect-ratio:1;
+  z-index:20;
+  pointer-events:none;
+
+  transform:
+    translateY(-50%)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    scale(1);
+
+  transition:transform .12s linear;
+  perspective:1000px;
+
+  filter:
+    drop-shadow(0 20px 35px rgba(0,0,0,.45));
+}
+
+.emblem-video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  border-radius:50%;
+
+  transform-style:preserve-3d;
+}
+
+/* subtle glow behind emblem */
+
+.emblem-video-wrap::before{
+  content:"";
+  position:absolute;
+  inset:15%;
+  border-radius:50%;
+  background:rgba(78,140,255,.16);
+  filter:blur(35px);
+  z-index:-1;
+}
+
+/* mobile */
+
+@media(max-width:980px){
+  .emblem-video-wrap{
+    width:130px;
+    right:1.2rem;
+    opacity:.75;
+  }
+}
+
+@media(max-width:640px){
+  .emblem-video-wrap{
+    width:90px;
+    right:.8rem;
+    top:auto;
+    bottom:80px;
+    transform:scale(.9);
+  }
+}
+```
+
 </style>
 </head>
 <body>
@@ -1258,6 +1343,64 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
   revealEls.forEach(el => io.observe(el));
+  ```javascript
+// ---------- 3D-STYLE SCROLLING EMBLEM ----------
+
+const emblem = document.getElementById('emblemVideo');
+
+let currentScroll = window.scrollY;
+let targetRotation = 0;
+let currentRotation = 0;
+
+window.addEventListener('scroll', () => {
+
+  const scrollY = window.scrollY;
+
+  // Rotation based on page position
+  targetRotation = scrollY * 0.18;
+
+  currentScroll = scrollY;
+
+}, { passive:true });
+
+
+function animateEmblem(){
+
+  // Smooth rotation
+  currentRotation +=
+    (targetRotation - currentRotation) * 0.08;
+
+  const scrollY = window.scrollY;
+  const rotationY = currentRotation;
+  const rotationX = Math.sin(scrollY * 0.006) * 10;
+  const rotationZ = Math.sin(scrollY * 0.003) * 4;
+
+  // Gentle floating movement
+  const moveX = Math.sin(scrollY * 0.004) * 25;
+  const moveY = Math.cos(scrollY * 0.003) * 15;
+
+  // Slight scaling
+  const scale =
+    1 + Math.sin(scrollY * 0.004) * 0.05;
+
+  emblem.style.transform = `
+    translate(
+      ${moveX}px,
+      calc(-50% + ${moveY}px)
+    )
+    perspective(1000px)
+    rotateX(${rotationX}deg)
+    rotateY(${rotationY}deg)
+    rotateZ(${rotationZ}deg)
+    scale(${scale})
+  `;
+
+  requestAnimationFrame(animateEmblem);
+}
+
+animateEmblem();
+```
+
 </script>
 
 </body>
