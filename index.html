@@ -663,27 +663,6 @@
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
     font-family:var(--mono); font-size:.72rem; color:var(--text-dim);
   }
-  .social-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:.5rem;
-    padding:.5rem 1.1rem;
-    border-radius:100px;
-    font-family:var(--mono);
-    font-size:.7rem;
-    font-weight:700;
-    letter-spacing:.01em;
-    color:#fff;
-    background:linear-gradient(45deg,#f9ce34 0%,#ee2a7b 45%,#6228d7 100%);
-    box-shadow:0 8px 20px -10px rgba(238,42,123,.55);
-    transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s var(--ease);
-  }
-  .social-btn svg{width:15px; height:15px; flex-shrink:0;}
-  .social-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 14px 28px -10px rgba(238,42,123,.7);
-    filter:brightness(1.08);
-  }
 
   /* ---------- FOCUS ---------- */
   a:focus-visible, button:focus-visible{
@@ -787,6 +766,76 @@
   }
 
   .whatsapp-tooltip{
+    display:none;
+  }
+}
+
+/* ---------- INSTAGRAM FLOATING BUTTON ---------- */
+.instagram-float{
+  position:fixed;
+  right:24px;
+  bottom:96px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#f9ce34 0%,#ee2a7b 45%,#6228d7 100%);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:150;
+  box-shadow:0 8px 20px -10px rgba(238,42,123,.55);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s var(--ease);
+}
+
+.instagram-float:hover{
+  transform:translateY(-4px) scale(1.06);
+  box-shadow:0 14px 28px -10px rgba(238,42,123,.7);
+  filter:brightness(1.08);
+}
+
+.instagram-float svg{
+  width:30px;
+  height:30px;
+}
+
+.instagram-tooltip{
+  position:absolute;
+  right:70px;
+  white-space:nowrap;
+  background:var(--surface-2);
+  color:var(--text);
+  border:1px solid var(--line);
+  padding:.55rem .8rem;
+  border-radius:8px;
+  font-family:var(--mono);
+  font-size:.7rem;
+  opacity:0;
+  visibility:hidden;
+  transform:translateX(6px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s;
+}
+
+.instagram-float:hover .instagram-tooltip{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(0);
+}
+
+@media (max-width:640px){
+  .instagram-float{
+    right:16px;
+    bottom:80px;
+    width:54px;
+    height:54px;
+  }
+
+  .instagram-float svg{
+    width:28px;
+    height:28px;
+  }
+
+  .instagram-tooltip{
     display:none;
   }
 }
@@ -1434,23 +1483,24 @@
     <div class="footer-bottom">
       <span>© 2018–<span id="year"></span> Chahal Engineers &amp; Co. All rights reserved.</span>
       <span>Trikuta Nagar, Jammu &amp; Kashmir</span>
-      <a
-        class="social-btn"
-        href="https://www.instagram.com/chahal_internationals?igsi=NzF0dWJsMDBmMzQz"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Follow Chahal Engineers &amp; Co. on Instagram"
-      >
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
-        </svg>
-        Follow us on Instagram
-      </a>
     </div>
   </div>
 </footer>
+<!-- INSTAGRAM FLOATING BUTTON -->
+<a
+  class="instagram-float"
+  href="https://www.instagram.com/chahal_internationals?igsi=NzF0dWJsMDBmMzQz"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Follow Chahal Engineers &amp; Co. on Instagram"
+>
+  <span class="instagram-tooltip">Follow on Instagram</span>
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5.5" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor"/>
+  </svg>
+</a>
 <!-- WHATSAPP FLOATING BUTTON -->
 <a
   class="whatsapp-float"
