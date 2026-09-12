@@ -399,6 +399,7 @@
     box-shadow:0 0 0 5px var(--tyre-dim), 0 12px 24px -12px rgba(0,0,0,.5);
     background:radial-gradient(115% 115% at 32% 22%, #fbfbf9 0%, #efeeea 55%, #e2e1dc 100%);
     transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+    cursor:pointer;
   }
   .recognition-card:hover .recognition-photo{
     transform:translateY(-4px) scale(1.04);
@@ -750,9 +751,9 @@
 
       <div class="award-grid recognition-grid reveal-stagger reveal">
         <div class="award-card recognition-card">
-          <div class="recognition-photo">
+          <a class="recognition-photo" href="certificates/iso-9001-certificate.jpeg" target="_blank" rel="noopener" aria-label="Open ISO 9001:2015 certificate full size">
             <img src="certificates/iso-9001-certificate.jpeg" alt="ISO 9001:2015 quality management certificate">
-          </div>
+          </a>
           <h3>ISO 9001:2015 Certified</h3>
           <p>Chahal Engineers &amp; Co. is ISO 9001:2015 Quality Management System certified for importer/dealer of tyres, automobile parts and construction/maintenance works, by UAIS &amp; LTS.</p>
         </div>
